@@ -1,0 +1,72 @@
+class Cart:
+    fr={}
+    def addcart(self,item,qty):
+        self.item=item
+        self.qty=qty
+        self.fr[self.item]=self.qty
+        
+    def removecart(self):
+        self.i=int(input("enter the choice : \n1.remove quantity\n2.remove the fruit and quantity\n Enter ehich option to remove : "))
+        if self.i==1:
+            self.j=input("Enter the fruit name to remove : ")
+            k=int(input("enter the quantity to remove : "))
+            self.fr[self.j]-=k
+        elif self.i==2:
+            self.j=input("Enter the fruit name to remove : ")
+            del self.fr[self.j]
+        else:
+            print("Invalid option,please try again.")
+            
+    def total(self):
+        tot=0
+        for i in self.fr:
+            tot+=self.fr[i]
+        print(f"the total fruits of your cart is : {tot}")
+        print("\nthe fruit : quantity : amount\n")
+        for i in self.fr:
+            print(f"{i} : {self.fr[i]} : {self.fr[i]*40}")
+        print(f"the total amount of your cart is : {tot*40}")
+    
+    def optioncart(self):
+        while True:
+            print("\n----------------------------------------------------------------\n")
+            choice=input("Enter the choice : ")
+            print("\n----------------------------------------------------------------\n")
+
+            if choice:
+                match choice:
+                    case '1':
+                        x=input("enter the fruit name : ")
+                        y=int(input("enter the fruits quantity : "))
+                        obj.addcart(x,y)
+                    case '2':
+                        obj.removecart()
+                    case '3':
+                        obj.total()
+                        break
+                    case '4':
+                        print("your cart is cancelled.")
+                        break
+                    case _:
+                        print("Invalid input, try again.")   
+                        
+            else:
+                print("Invalid choice.")
+                obj.optioncart()
+        
+        
+print("\n----------------------------------------------------------------\n")
+
+print("the fruits shopping cart :")
+print("\n----------------------------------------------------------------")
+print('''
+1.add fruit to cart
+2.remove fruit to cart
+3.total
+4.cancel cart.''')
+print("\n----------------------------------------------------------------\n")
+
+obj=Cart()
+obj.optioncart()
+        
+    
