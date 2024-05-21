@@ -6,7 +6,7 @@ def create_result_file(file_path):
         for i in range(1, 31):
             
             name = f"Student{i}"
-            reg_no = f"Reg{i:04}"
+            reg_no = f"Reg.no.654321{i:02}"
             grades = ['O', 'A', 'B', 'C', 'D', 'U']  
             points = {'O': 10, 'A': 9, 'B': 8, 'C': 7, 'D': 6, 'U': 0}
             grd=[]
