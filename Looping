@@ -1,150 +1,290 @@
-# 1.	Write a Python program to check if a given number is positive, negative, or zero 
+                                    # Low Level:
+                                    
+ # 1. Write a Python program to create the multiplication table (from 1 to 10) of a number
 
-n=int(input("Enter to a number to find positive or negative :"))
-if n==0:
-    print(f"{n} it is  Zero")
-elif n>0:
-    print(f"{n} is Positive")
+n=int(input("Enter the multiplication table number : "))
+print("Multiplication table of ",n)
+for i in range(1,10+1):
+    print(f"{i} * {n} = {i*n}")
+
+# 2. Write a Python program to print each fruit in a list of fruits using a loop. Assume the list is ["Apple", "Banana", "Cherry"].
+
+fruit=['Apple','Banana','Cherry','Orange','Grapes']
+for i in fruit:
+    print(i)
+
+# 3. Write a Python program to print all even numbers between 1 and 20 using a loop.
+
+print("The even numbers between 1 to 20 is")
+for i in range(1,20+1):
+    if i%2==0:
+        print(i,end=" ")
+
+
+# 4. Write a Python program to calculate the factorial of a given number using a loop. Assume the number is 5.
+
+n=int(input("Enter the number to find factorial :"))
+k=1
+for i in range(1,n+1):
+    k*=i
+print(f"The factorial of {n} is : {k}")
+
+
+# 5. Write a Python program to check if a given number is prime using a loop. Assume the number is 29.
+
+n=int(input("Enter the number to find prime  or not :"))
+c=0
+for i in range(1,n+1):
+    if n%i==0:
+        c+=1
+if c==2:
+    print(f"{n} is Prime Number..")
 else:
-    print(f"{n} is Negative.")
+    print(f"{n} is Not Prime Number..")
 
-# #2.	Create a program that takes a user's age as input and outputs whether they are eligible to vote or not (considering the legal voting age is 18).
 
-age=int(input("Enter your age : "))
-if age>=18:
-    print("Your are eligible for voting ")
-else:
-    print("Your are not eligible for voting ")
+# 6. Write a Python program to count the number of vowels in a given string using a loop. Assume the string is "Artificial Intelligence and Machine Learning".
 
-# # 3.	Write a Python program to determine whether a given year is a leap year or not
+n=input("Enter the string :").lower()
+k=['a','e','i','o','u']
+c=0
+for i in n:
+    if i in k:
+        c+=1
+print(f"The total numbers of vowels in the string is : {c}")
 
-y=int(input("Enter year to find leap year or not :"))
-if (y%4==0 and y%100==0 ) and y%400==0:
-    print(f"{y} is Leap year..")
-elif (y%4==0 and y%100!=0 ) and y%400!=0:
-    print(f"{y} is Leap year..")
-else:
-    print(f"{y} is Not a Leap year..")
 
-# # 4.	Develop a program that takes a user's temperature as input and outputs whether they have a fever or not (considering a fever if temperature is equal to or above 100.4°F or 38°C).
+#.................................................................................................................................................................
 
-h=int(input("Enter your choice 1.Faherinheit or 2.Celsius:"))
-if h==1:
-    f=float(input("Enter the temperature in Faherinheit :"))
-    if f>=100.4:
-        print("You have a fever")
+
+                                                        # Medium Level:
+
+# 1. Write a Python program to construct the following pattern, using a nested loop number. 
+# Expected Output:
+# 1
+# 2 2
+# 3 3 3
+# 4 4 4 4
+# 5 5 5 5 5
+# 6 6 6 6 6 6
+# 7 7 7 7 7 7 7 
+# 8 8 8 8 8 8 8 8
+# 9 9 9 9 9 9 9 9 9
+
+n=int(input("Enter a number of rows : "))
+for i in range(n+1):
+    for j in range(i):
+        print(i,end=" ")
+    print()
+
+
+# 2.Write a Python program to construct the following pattern, using a nested for loop.
+# * 
+# * * 
+# * * * 
+# * * * * 
+# * * * * * 
+# * * * * 
+# * * * 
+# * * 
+# *
+
+n=int(input("Enter a number of rows : "))
+for i in range(n+1):
+    for j in range(i):
+        print("*",end=" ")
+    print()
+for i in range(n):
+    for j in range(i,n-1):
+        print("*",end=" ")
+    print()
+
+# 3. Write a Python program to print the alphabet pattern 'D'. 
+# Expected Output: 
+#  ****                                                                   
+#  *   *                                                                  
+#  *   *                                                                  
+#  *   *                                                                  
+#  *   *                                                                  
+#  *   *                                                                  
+#  **** 
+
+n=int(input("Enter a number of rows : "))
+for i in range(n):
+    for j in range(n):
+        if (i == 0 or i == n-1) and (j != 0 and j != n-1):  # Top and bottom sides
+            print("*", end="")
+        elif (j == 0 or j == n-1) and (i != 0 and i != n-1):  # Left and right sides
+            print("*", end="")
+        else:
+            print(" ", end="")
+    print()
+
+
+# 4.Write a Python program to print the alphabet pattern 'M'. 
+# Expected Output: 
+#   *       *                                                             
+#   *       *                                                             
+#   * *   * *                                                             
+#   *   *   *                                                             
+#   *       *                                                             
+#   *       *                                                             
+#   *       *
+
+n=int(input("Enter a number of rows : "))
+for i in range(n):
+    for j in range(n):
+        if j == 0 or j == n - 1:  # Left and right sides
+            print("*", end="")
+        elif i == j and i <= n // 2:  # Diagonal from top-left to middle
+            print("*", end="")
+        elif i + j == n - 1 and i <= n // 2:  # Diagonal from top-right to middle
+            print("*", end="")
+        else:
+            print(" ", end="")
+    print()
+
+
+# 5.Write a Python program to print the alphabet pattern 'O'. 
+# Expected Output: 
+#   ***                                                                   
+#  *   *                                                                  
+#  *   *                                                                  
+#  *   *                                                                  
+#  *   *                                                                  
+#  *   *                                                                  
+#   *** 
+
+n=int(input("Enter a number of rows : "))
+for i in range(n):
+    for j in range(n):
+        if (i == 0 or i == n-1) and (j != 0 and j != n-1):  
+            print("*", end="")
+        elif (j == 0 or j == n-1) and (i != 0 and i != n-1):
+            print("*", end="")
+        else:
+            print(" ", end="")
+    print()
+
+
+# 6. Write a Python program to print a right-angled triangle of numbers with n rows. Assume n = 5
+# Expected Output :
+# 1
+# 12
+# 123
+# 1234
+# 12345
+
+n=int(input("Enter a number of rows : "))
+for i in range(n+1):
+    for j in range(i):
+        print(j+1,end="")
+    print()
+
+# 7. Write a Python program to print an inverted right-angled triangle of stars with n rows. Assume n = 5
+# Expected Output :
+# *****
+# ****
+# ***
+# **
+# *
+
+n=int(input("Enter a number of rows : "))
+for i in range(n+1):
+    for j in range(i,n):
+        print("*",end="")
+    print()
+
+# 8. Write a Python program to print a pyramid of stars with n rows. Assume n = 4.
+# Expected Output :
+#     *
+#    ***
+#   *****
+#  *******
+
+n=int(input("Enter a number of rows : "))
+for i  in range(n):
+    for j in range(0,n-i-1):
+        print("  ",end="")
+    for k in range(0,(2*i)+1):
+        print("* ",end="")
+    print()
+
+# 9.	Write a Python program to print a diamond pattern of stars with n rows. Assume n = 5.
+# Expected Output :
+#     *
+#    ***
+#   *****
+#  *******
+# *********
+#  *******
+#   *****
+#    ***
+#     *
+
+n=int(input("Enter a number of rows : "))
+for i  in range(n):
+    for j in range(0,n-i-1):
+        print("  ",end="")
+    for k in range(0,(2*i)+1):
+        print("* ",end="")
+    print()
+for i  in range(n-2,-1,-1):
+    for j in range(0,n-i-1):
+        print("  ",end="")
+    for k in range(0,(2*i)+1):
+        print("* ",end="")
+    print()
+
+
+# 10. Write a Python program to print a right-angled triangle of incrementing numbers with n rows. Assume n = 5.
+# Expected Output :
+# 1 
+# 2 3 
+# 4 5 6 
+# 7 8 9 10 
+# 11 12 13 14 15
+
+n=int(input("Enter a number of rows : "))
+k=1
+for i in range(n+1):
+    for j in range(i):
+        print(k,end=" ")
+        k+=1
+    print()
+
+#...........................................................................................................................................................
+                                #High Level
+
+# 1. Write a Python program to check the validity of passwords input by users. 
+# Validation : 
+# At least 1 letter between [a-z] and 1 letter between [A-Z]. 
+# At least 1 number between [0-9].
+# At least 1 character from [$#@].
+# Minimum length 6 characters.
+# Maximum length 16 characters.
+
+p=input("Enter your password for check :")
+s,h,o=0,0,0
+sy=['$','#','@']
+s1=len(p)
+if s1>6 and s1<=16:
+    for i in p:
+        if i.isalpha():
+            s+=1
+        if i.isdigit():
+            h+=1
+        if i in sy:
+            o+=1
+    if s>0 and h>0 and o>0:
+        print("Valid Password..")
+    elif s==0:
+        print("Give atleast 1 upper and lower case..")
+    elif h==0:
+        print("Give atleasr 1 number...")
+    elif o==0:
+        print("Give atleast 1 special character ($,#,@)..")
     else:
-        print("You have no fever..")
-elif h==2:
-    c=float(input("Enter the temperature in Celsius :"))
-    if c>=32:
-        print("You have a fever")
-    else:
-        print("You have no fever..")
+        pass
 else:
-    print("Invalid Input...")
-
-# # 5.	Create a Python program to find the largest among three numbers entered by the user.
-
-a,b,c=input("Enter any three number :")
-if a>b and a>c:
-    print(f"{a} is the biggest number")
-elif b>a and b>c:
-    print(f"{b} is the biggest number")
-else:
-    print(f"{c} is the biggest number")
-
-# # 6.	Write a program to calculate the total cost of a meal, including tax and tip, based on user input for the meal cost and percentage rates for tax and tip.
-
-cost=int(input("Enter the cost of the meals :"))
-tax=float(input("Enter the tax :"))
-tip=float(input("Enter the tips :"))
-taper=(tax*cost)/100
-tiper=(tip*cost)/100
-print("The total cost for meals (incl tax and tip) : ",cost+taper+tiper)
-
-# # 7.	Develop a program to classify a triangle based on the lengths of its sides (scalene, isosceles, or equilateral).
-
-s1,s2,s3=input("Enter the three sides of a triangle :")
-if s1==s2==s3:
-    print("Its is Equilateral Triangle ")
-elif s1==s2 or s1==s3 or s2==s3:
-    print("Its is Isoceles Triangle")
-else:
-    print("Its is Scalene Triangle")
-
-# # 8.	Create a program that determines whether a given year is a leap year and has 366 days or a common year with 365 days.
-
-y=int(input("Enter year to find leap year or not :"))
-if (y%4==0 and y%100==0 ) and y%400==0:
-    print(f"{y} is Leap year..\nIts has 366")
-elif (y%4==0 and y%100!=0 ) and y%400!=0:
-    print(f"{y} is Leap year..\nIts has 366")
-else:
-    print(f"{y} is Not a Leap year..\nIts has 365")
-
-# # 9.	Write a Python program to check whether a character entered by the user is a vowel or a consonant.
-
-ch=input("Enter the character to check for vowels or not :")
-vo=['a','e','i','u','o']
-if ch in vo:
-    print("The Character is Vowels...")
-else:
-    print("The Character is not Vowels...")
-
-# # 10.	Write a Python program that prompts the user to enter three numbers and then outputs them in ascending order.
-
-a,b,c=input("Enter any three number :")
-k=sorted([a,b,c])
-print(f"The numbers in ascending order :")
-for i in k:
-    print(i,end=" ")
-
-# ....................................................................................................................................
-
-# 1. Develop a program that takes a user's score as input and outputs their corresponding grade based on the following grading scale: A (90-100), B (80-89), C (70-79), D (60-69), F (0-59).
-# •	Test Case 1: Input score: 85. Expected output: Grade B.
-# •	Test Case 2: Input score: 60. Expected output: Grade D.
-# •	Test Case 3: Input score: 95. Expected output: Grade A.
- 
-s=int(input("Enter the score to find the grade :"))
-if 100>=s and s>90:
-    print("Your grade is A")
-elif s<90 and s>=80:
-    print("Your grade is B")
-elif s<80 and s>=70:
-    print("Your grade is C")
-elif s<70 and s>=60:
-    print("Your grade is D")
-else:
-    print("Your grade is F")
-
-# #2.Create a program that simulates a simple ATM machine, prompting the user for their account balance and withdrawal amount, then outputs whether the transaction is successful or not based on the available balance and withdrawal amount.
-# •	Test Case 1: Account balance: $1000, Withdrawal amount: $500. Expected output: Transaction successful.
-# •	Test Case 2: Account balance: $200, Withdrawal amount: $300. Expected output: Insufficient funds.
-
-
-def wit(bal,am):
-    if am<bal:
-        return "Withdrawal is successfully..."
-    else:
-        return "Insufficient Balance...."
-bal=int(input("Enter the account balance :"))
-am=int(input("Enter the amount to withdrawl :"))
-print(wit(bal,am))
-
-# 4.Develop a program that takes a user's age and gender as input and outputs their recommended heart rate range during exercise based on the American Heart Association's guidelines.
-# •	Test Case 1: Age: 30, Gender: Male. Expected output: 93 - 157 bpm.
-# •	Test Case 2: Age: 45, Gender: Female. Expected output: 88 - 149 bpm.
-# •	Test Case 3: Age: 55, Gender: Male. Expected output: 85 - 145 bpm.
-
-def bpm(a,g):
-    if a==30 and g=="male":
-        return " Recommended Heart beat 93-157 bpm "
-    elif a==45 and g=="female":
-        return " Recommended Heart beat 88-149 bpm"
-    else:
-        return "Recommended Heart beat 93-157 bpm"
-age=int(input("Enter your age :"))
-gen=input("Enter your gender :")
-print(bpm(age,gen))
+    print("Your password must be in range of 6-16 characters...")
